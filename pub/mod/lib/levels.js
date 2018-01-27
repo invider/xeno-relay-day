@@ -1,4 +1,4 @@
-/** @typedef {{x:number, y:number, type:string, angle:number, maxAngleDiff:number}} Planet
+/** @typedef {{x:number, y:number, m:number, angle:number, maxAngleDiff:number, c:number}} Planet
 /**
  * @type {[{name:string, description:string, start:Planet, end:Planet, planets:[Planet]}]}
  */
@@ -13,15 +13,13 @@ module.exports = [
             x:250,
             y:200,
             m:25,
-            c:1,
-            type:"start"
+            c:1
         },
         end:{
             x:75,
             y:125,
             m:35,
             c:0,
-            type:"end"
         },
         planets:[
             {

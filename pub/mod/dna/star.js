@@ -21,6 +21,9 @@ Star.prototype.evo = function(dt) {
 }
 Star.prototype.draw = function() {
     ctx.drawImage(this.img, this.x, this.y, this.m, this.m)
+    ctx.beginPath();
+    //ctx.arc(this.x,this.y,50,0,2*Math.PI);
+    ctx.stroke();
 }
 
 module.exports = function(dat) {

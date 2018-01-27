@@ -4,4 +4,6 @@ module.exports = function(){
     for (let k in lvlData.planets){
         sys.spawn('dna/star', 'lab', lvlData.planets[k]);
     }
+    sys.spawn('dna/star', 'lab', lvlData.start);
+    sys.spawn('dna/star', 'lab', lvlData.end);
 };
