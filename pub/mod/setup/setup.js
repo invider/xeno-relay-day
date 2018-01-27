@@ -1,4 +1,3 @@
-
 module.exports = function(_) {
     _.log.debug('setup', 'setting up the game')
 

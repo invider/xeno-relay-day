@@ -44,7 +44,28 @@ module.exports = [
                 m:35,
                 c:0,
                 angle:7 * HOUR
-            }
+            },
+            {
+                x:620,
+                y:400,
+                m:35,
+                c:0,
+                angle:7 * HOUR
+            },
+            {
+                x:420,
+                y:500,
+                m:35,
+                c:1,
+                angle:7 * HOUR
+            },
+            {
+                x:300,
+                y:350,
+                m:35,
+                c:0,
+                angle:7 * HOUR
+            },
         ]
     }
 ];

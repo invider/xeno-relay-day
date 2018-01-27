@@ -7,6 +7,7 @@ let Signal = function(dat) {
     this.e = dat.e
 
     this.a = Math.random() * Math.PI * 2
+    //this.a = dat.a
     this.dx = Math.sin(this.a) * SIGNAL_SPEED
     this.dy = Math.cos(this.a) * SIGNAL_SPEED
 }
