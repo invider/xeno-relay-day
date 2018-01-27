@@ -6,7 +6,7 @@ module.exports = function(init) {
         y: init.y,
         h: 30,
         txt: init.txt,
-        ttl: 5,
+        ttl: init.ttl,
 
         init: function() {
             this.txt = this.txt.split(/\r?\n/)
