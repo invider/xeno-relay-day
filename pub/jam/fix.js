@@ -140,7 +140,7 @@ Frame.prototype.detach = function(node) {
         if (this.name) {
             this.__.detachByName(node.name)
         } else {
-            let i = this.__._ls.findIndex(this)
+            let i = this.__._ls.indexOf(this)
             if (i >= 0) {
                 // find index on parent
                 this.__._ls.splice(i, 1)
@@ -150,8 +150,7 @@ Frame.prototype.detach = function(node) {
         if (node.name) {
             this.detachByName(node.name)
         } else {
-            debugger
-            let i = this._ls.findIndex(node)
+            let i = this._ls.indexOf(node)
             if (i >= 0) {
                 // find index on parent
                 this._ls.splice(i, 1)
