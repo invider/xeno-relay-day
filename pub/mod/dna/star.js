@@ -20,9 +20,6 @@ let Star = function (dat) {
             this.img = res['star-yellow'];
             break;
     }
-
-    _.log.debug('!!!!!!! created star');
-    console.dir(dat);
 };
 
 Star.prototype.init = function() {

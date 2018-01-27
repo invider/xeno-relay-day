@@ -11,5 +11,10 @@ module.exports = function(_) {
         y: 100,
         txt: env.story,
     })
-}
 
+    sys.spawn('dna/signal', 'lab', {
+        x: 100,
+        y: 250,
+        e: 3,
+    })
+}
