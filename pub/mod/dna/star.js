@@ -36,6 +36,7 @@ Star.prototype.evo = function (dt) {
 Star.prototype.rotateAntenna = function(angle){
     this.angle += angle;
 };
+
 Star.prototype.getEnergyStartPoint = function(){
     var res = lib.trigonometry.rotateLineAroundFirstDot(this.x, this.y, this.orbitR, this.angle);
     return {

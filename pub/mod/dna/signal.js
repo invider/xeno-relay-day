@@ -10,8 +10,8 @@ let Signal = function(dat) {
     //this.dx = Math.sin(this.a) * SIGNAL_SPEED
     //this.dy = Math.cos(this.a) * SIGNAL_SPEED
     //this.a = Math.random() * Math.PI * 2
-    this.dx = Math.sin(Math.PI - this.a) * SIGNAL_SPEED
-    this.dy = Math.cos(Math.PI - this.a) * SIGNAL_SPEED
+    this.dx = Math.sin(this.a - Math.PI) * SIGNAL_SPEED
+    this.dy = Math.cos(this.a - Math.PI) * SIGNAL_SPEED
 }
 
 Signal.prototype.init = function() {
