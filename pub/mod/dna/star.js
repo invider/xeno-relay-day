@@ -20,7 +20,7 @@ Star.prototype.init = function() {
 Star.prototype.evo = function(dt) {
 }
 Star.prototype.draw = function() {
-    ctx.drawImage(this.img, this.x, this.y, this.m, this.m)
+    ctx.drawImage(this.img, this.x-this.m, this.y-this.m, this.m*2, this.m*2)
     ctx.beginPath();
     //ctx.arc(this.x,this.y,50,0,2*Math.PI);
     ctx.stroke();
