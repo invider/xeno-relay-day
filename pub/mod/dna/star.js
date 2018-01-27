@@ -68,7 +68,7 @@ Star.prototype.tryToExecCmd = function(){
             sys.spawn('dna/signal', 'lab', {
                 x: res.x,
                 y: res.y,
-                a: _.lab.start.angle,
+                a: this.angle,
                 e: 5,
                 spawnedBy:this,
                 cmd: cmd

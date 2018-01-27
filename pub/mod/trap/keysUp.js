@@ -6,6 +6,7 @@ module.exports = function(){
         _.lib.constants.commands.ROTATE_LEFT,
         _.lib.constants.commands.ROTATE_LEFT,
         _.lib.constants.commands.SEND_TO_NEXT_PLANET,
+        _.lib.constants.commands.SEND_TO_NEXT_PLANET,
         _.lib.constants.commands.ROTATE_RIGHT,
         _.lib.constants.commands.ROTATE_RIGHT,
         _.lib.constants.commands.ROTATE_RIGHT,
