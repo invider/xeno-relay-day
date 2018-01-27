@@ -7,14 +7,9 @@ module.exports = function(_) {
 
     // show story
     sys.spawn('dna/scroll', 'lab', {
-        x: 250,
+        x: 600,
         y: 100,
         txt: env.story,
-    })
-
-    sys.spawn('dna/signal', 'lab', {
-        x: 100,
-        y: 250,
-        e: 3,
+        ttl: 10,
     })
 }
