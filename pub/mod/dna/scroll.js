@@ -6,15 +6,19 @@ module.exports = function(init) {
         y: init.y,
         h: 30,
         txt: init.txt,
+        ttl: 5,
 
         init: function() {
             this.txt = this.txt.split(/\r?\n/)
         },
 
         evo: function(dt) {
+            this.ttl -= dt
+            if (this.ttl < 0) this.alive = false
         },
 
         draw: function() {
+            if (!this.alive) return 
             ctx.fillStyle = '#FFFF00'
             ctx.font = '24px zekton'
 

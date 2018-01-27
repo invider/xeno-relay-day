@@ -1,5 +1,5 @@
 
-let STAR_FQ = 2
+let STAR_FQ = 0.8
 
 // star background
 module.exports =  {
@@ -12,8 +12,8 @@ module.exports =  {
             c: this._.lib.math.rndi(3),
             x: this._.env.width,
             y: this._.lib.math.rndi(this._.env.height),
-            s: 10 + this._.lib.math.rndi(20),
-            m: 3 + this._.lib.math.rndi(15),
+            s: 4 + this._.lib.math.rndi(8),
+            m: 5 + this._.lib.math.rndi(10),
         }
 
         for (let i = 0; i < this.stars.length; i++) {
@@ -27,7 +27,7 @@ module.exports =  {
     },
 
     spawn: function() {
-        for(let i = 0; i < 60*60; i++) {
+        for(let i = 0; i < 180*60; i++) {
             this.evo(0.015)
         }
     },
