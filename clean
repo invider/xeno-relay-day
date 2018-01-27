@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rm -rf node_modules
+rm -f package-lock.json
+rm -f man/*pdf
+rm -f pub/topology
+
