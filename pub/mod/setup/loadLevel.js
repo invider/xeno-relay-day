@@ -18,6 +18,7 @@ module.exports = function(){
     for (let k in lvlData.planets){
         sys.spawn('dna/star', 'lab', setDefaults(lvlData.planets[k]));
     }
-    sys.spawn('dna/star', 'lab', setDefaults(lvlData.start));
+    let start = sys.spawn('dna/star', 'lab', setDefaults(lvlData.start));
+    start.startStar = true;
     sys.spawn('dna/star', 'lab', setDefaults(lvlData.end));
 };

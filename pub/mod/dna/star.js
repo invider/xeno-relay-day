@@ -63,13 +63,14 @@ Star.prototype.execute = function(cmd){
 Star.prototype.tryToExecCmd = function(){
     if (this.sequence.length > 0 ){
         var cmd = this.sequence.shift();
-        var res = _.lab.start.getEnergyStartPoint();
+        var res = this.getEnergyStartPoint();
         if (this.sending){
             sys.spawn('dna/signal', 'lab', {
                 x: res.x,
                 y: res.y,
                 a: _.lab.start.angle,
                 e: 5,
+                spawnedBy:this,
                 cmd: cmd
             });
         } else {

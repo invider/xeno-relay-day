@@ -1,12 +1,12 @@
 const SIGNAL_SPEED = 30
 
 let Signal = function(dat) {
-    this.x = dat.x
-    this.y = dat.y
-    this.a = dat.a
-    this.e = dat.e
+    this.x = dat.x;
+    this.y = dat.y;
+    this.a = dat.a;
+    this.e = dat.e;
     this.cmd = dat.cmd;
-
+    this.spawnedBy = dat.spawnedBy;
     //this.a = Math.random() * Math.PI * 2
     //this.dx = Math.sin(this.a) * SIGNAL_SPEED
     //this.dy = Math.cos(this.a) * SIGNAL_SPEED
@@ -20,7 +20,7 @@ Signal.prototype.init = function() {
 
 Signal.prototype.checkPlanetCollision = function(){
     var my = this;
-    let star = $.lab._ls.find(obj => obj.type == "star" && $.lib.math.distance(my.x, my.y, obj.x, obj.y) <= obj.orbitR);
+    let star = $.lab._ls.find(obj => obj.type == "star" && obj != my.spawnedBy && $.lib.math.distance(my.x, my.y, obj.x, obj.y) <= obj.orbitR);
     if (star){
         star.applyCmd(this.cmd);
         this.__.detach(this);
