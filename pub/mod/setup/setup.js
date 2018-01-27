@@ -4,5 +4,12 @@ module.exports = function(_) {
 
     // add a mod layer to show statistics
     _.mod('fix/stat')
+
+    // show story
+    sys.spawn('dna/scroll', 'lab', {
+        x: 250,
+        y: 100,
+        txt: env.story,
+    })
 }
 

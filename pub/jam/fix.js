@@ -745,7 +745,22 @@ Mod.prototype.load = function(src, base, path, ext) {
     } else if (ext === 'yaml') {
         // TODO how to load that? only AJAX?
     } else if (ext === 'txt') {
-        // TODO how to load that? only AJAX?
+        _.log.debug('loader', 'loading text @' + src)
+        
+        _.res._included ++
+        let usrc = src + "?" + Math.random() // fix possible cache issue
+
+        var ajax = new XMLHttpRequest()
+        ajax.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // file is loaded
+                let txt = this.responseText
+                _.patch(base, path, txt)
+                _.res._loaded ++
+            }
+        }
+        ajax.open("GET", src, true);
+        ajax.send();
     } else if (ext === 'csv') {
         // TODO how to load that? only AJAX?
     } else if (ext === 'js') {

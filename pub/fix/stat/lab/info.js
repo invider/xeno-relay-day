@@ -19,7 +19,7 @@ return {
         this.fps = (this.fps * this.smoothing) + (f * (1-this.smoothing))
 
         ctx.fillStyle = '#FFFF00'
-        ctx.font = '24px Impact'
+        ctx.font = '24px zekton'
         ctx.fillText('FPS: ' + Math.round(this.fps), 10, 42) 
         ctx.fillText('Time: ' + Math.floor(this.time), 10, 72)
 
