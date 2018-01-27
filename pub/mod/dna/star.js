@@ -1,12 +1,17 @@
 const DISH_SCALE = 1.2;
 const ORBIT_DISTANCE = 10;
 const STROKE_STYLE = "blue";
+const SEQUENCE_EXEC_PERIOD = 0.4;
 
 let Star = function (dat) {
+    this.timer = 0;
     this.x = dat.x;
     this.y = dat.y;
     this.m = dat.m;
     this.name = dat.name;
+    this.sequence = [];
+    this.executing = false;
+    this.sending = false;
 
     // setup color
     this.c = dat.c;
@@ -29,8 +34,57 @@ let Star = function (dat) {
 
 Star.prototype.init = function () {
 };
+Star.prototype.execute = function(cmd){
+    switch (cmd){
+        case _.lib.constants.commands.SEND_TO_NEXT_PLANET:
+            this.sending = true;
+            break;
+        case _.lib.constants.commands.ROTATE_RIGHT:
+            this.rotateAntenna(_.lib.constants.ROTATE_ANGLE);
+            break;
+        case _.lib.constants.commands.ROTATE_LEFT:
+            this.rotateAntenna(-_.lib.constants.ROTATE_ANGLE);
+            break;
+
+        case _.lib.constants.commands.FIX_STAR:
+            //
+            //  TODO: implement star fixing behavior
+            //
+            break;
+    }
+};
+Star.prototype.tryToExecCmd = function(){
+    if (this.sequence.length > 0 ){
+        var cmd = this.sequence.shift();
+        var res = _.lab.start.getEnergyStartPoint();
+        if (this.sending){
+            sys.spawn('dna/signal', 'lab', {
+                x: res.x,
+                y: res.y,
+                a: _.lab.start.angle,
+                e: 5,
+                cmd: cmd
+            });
+        } else {
+            this.execute(cmd);
+        }
+    } else {
+        this.executing = false;
+    }
+};
 
 Star.prototype.evo = function (dt) {
+    if (this.executing){
+        this.timer += dt;
+        if (this.timer > SEQUENCE_EXEC_PERIOD){
+            this.tryToExecCmd();
+            this.timer = 0;
+        }
+    }
+};
+
+Star.prototype.execSequence = function(){
+    this.executing = true;
 };
 
 Star.prototype.rotateAntenna = function(angle){

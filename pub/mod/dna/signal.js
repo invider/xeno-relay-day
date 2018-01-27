@@ -5,6 +5,7 @@ let Signal = function(dat) {
     this.y = dat.y
     this.a = dat.a
     this.e = dat.e
+    this.cmd = dat.cmd;
 
     //this.a = Math.random() * Math.PI * 2
     //this.dx = Math.sin(this.a) * SIGNAL_SPEED
@@ -15,7 +16,7 @@ let Signal = function(dat) {
 }
 
 Signal.prototype.init = function() {
-}
+};
 
 Signal.prototype.evo = function(dt) {
     this.e -= dt
@@ -26,15 +27,15 @@ Signal.prototype.evo = function(dt) {
 
     this.x += this.dx * dt
     this.y += this.dy * dt
-}
+};
 
 Signal.prototype.draw = function() {
-    ctx.fillStyle = '#FFFF00'
+    ctx.fillStyle = this.cmd.color || '#FFFF00';
     ctx.beginPath();
     ctx.arc(this.x, this.y, 5 ,0,2*Math.PI);
     ctx.fill();
-}
+};
 
 module.exports = function(dat) {
-    return new Signal(dat)
-}
+    return new Signal(dat);
+};
