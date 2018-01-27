@@ -779,20 +779,24 @@ Mod.prototype.load = function(src, base, path, ext) {
                 let code = this.responseText
                 //try {
                     var scope = {}
+                    var module = {}
 
                     // provide lexical scope for mod context and scope object for this. definitions
-                    code = '(function ' + name + '(_, ctx, sys, lib, res, dna, env, lab, mod, log) {'
+                    code = '(function ' + name + '(_, ctx, module, sys, lib, res, dna, env, lab, mod, log) {'
                         + code
-                    + '}).call(scope, _, _.ctx, _.sys, _.lib, _.res, _.dna, _.env, _.lab, _.mod, _.log)'
+                    + '}).call(scope, _, _.ctx, module, _.sys, _.lib, _.res, _.dna, _.env, _.lab, _.mod, _.log)'
 
                     let val = eval(code)
 
                     //_.log.debug('jam', 'scanning: ' + src + ' loaded: ' + _.res._resLoaded + '/' + _.res._resIncluded)
-                    _.scan(scope)    
+                    _.scan(scope)
                     // fix the mode if there is a value
                     if (val) {
                         //_.log.debug('loader', 'we have a value @' + path)
                         _.patch(base, path, val)
+                    } else if (module.exports) {
+                        // no value is reture - try to find a value
+                        _.patch(base, path, module.exports)
                     }
                 //} catch (e) {
                 //    _scene.log.err('jam-loader', 'error in [' + src + ']' + e)
