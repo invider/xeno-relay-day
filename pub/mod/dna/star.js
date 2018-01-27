@@ -36,7 +36,7 @@ Star.prototype.drawAntenna = function(){
     var res = lib.trigonometry.rotateLineAroundFirstDot(this.x, this.y, this.orbitR, this.angle);
     ctx.save();
     ctx.translate(res.x1, res.y1);
-    ctx.rotate(Math.PI - this.angle);
+    ctx.rotate(- this.angle);
     ctx.drawImage(this.antennaImg,
         -this.antennaImg.width * DISH_SCALE,
         -this.antennaImg.height * DISH_SCALE,

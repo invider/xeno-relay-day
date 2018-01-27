@@ -34,14 +34,14 @@ module.exports = [
                 y:340,
                 m:25,
                 c:0,
-                angle:5 * HOUR
+                angle:6 * HOUR
             },
             {
                 x:420,
                 y:100,
                 m:35,
                 c:0,
-                angle:5 * HOUR
+                angle:7 * HOUR
             }
         ]
     }

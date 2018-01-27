@@ -13,8 +13,8 @@ module.exports = {
         return {
             x: x,
             y: y,
-            x1: x + xOffset,
-            y1: y + yOffset
+            x1: x - xOffset,
+            y1: y - yOffset
         }
     }
 };
