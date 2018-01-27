@@ -470,6 +470,8 @@ var Mod = function(initObj) {
 
     // container for traps
     var trap = function trap(key, data, chain) {
+        //_scene.log.debug('trapping ' + key)
+
         var fn = this.trap[key]
         if (isFun(fn)) {
             fn(data)
@@ -1150,6 +1152,7 @@ function handleKeyDown(e) {
     var code = e.which || e.keyCode
 
     _scene.env.keys[code] = 1
+    _scene.trap(e.code.toLowerCase() + 'Down', e, true)
 
     e.preventDefault()
     e.stopPropagation()
@@ -1159,6 +1162,8 @@ function handleKeyDown(e) {
 function handleKeyUp(e) {
     var code = e.which || e.keyCode
     delete _scene.env.keys[code]
+
+    _scene.trap(e.code.toLowerCase() + 'Up', e, true)
 
     e.preventDefault()
     e.stopPropagation()

@@ -1,8 +1,14 @@
+const SIGNAL_SPEED = 30
+
 let Signal = function(dat) {
     this.x = dat.x
     this.y = dat.y
     this.a = dat.a
     this.e = dat.e
+
+    this.a = Math.random() * Math.PI * 2
+    this.dx = Math.sin(this.a) * SIGNAL_SPEED
+    this.dy = Math.cos(this.a) * SIGNAL_SPEED
 }
 
 Signal.prototype.init = function() {
@@ -14,6 +20,9 @@ Signal.prototype.evo = function(dt) {
         this.alive = false
         this.__.detach(this)
     }
+
+    this.x += this.dx * dt
+    this.y += this.dy * dt
 }
 
 Signal.prototype.draw = function() {
