@@ -5,6 +5,7 @@ let Star = function (dat) {
     this.x = dat.x;
     this.y = dat.y;
     this.m = dat.m;
+    this.name = dat.name;
 
     // setup color
     this.c = dat.c;
@@ -27,15 +28,26 @@ let Star = function (dat) {
 
 Star.prototype.init = function () {
 };
+
 Star.prototype.evo = function (dt) {
 };
 
+Star.prototype.rotateAntenna = function(angle){
+    this.angle += angle;
+};
+Star.prototype.getEnergyStartPoint = function(){
+    var res = lib.trigonometry.rotateLineAroundFirstDot(this.x, this.y, this.orbitR, this.angle);
+    return {
+        x: res.x1,
+        y: res.y1
+    }
+};
 Star.prototype.drawAntenna = function(){
     // let antennaX = this.x - this.antennaImg.width / 2;
     // let antennaY = this.y - this.antennaImg.height / 2;
-    var res = lib.trigonometry.rotateLineAroundFirstDot(this.x, this.y, this.orbitR, this.angle);
+    var res = this.getEnergyStartPoint();
     ctx.save();
-    ctx.translate(res.x1, res.y1);
+    ctx.translate(res.x, res.y);
     ctx.rotate(- this.angle);
     ctx.drawImage(this.antennaImg,
         -this.antennaImg.width * DISH_SCALE,

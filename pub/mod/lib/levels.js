@@ -13,13 +13,15 @@ module.exports = [
             x:250,
             y:200,
             m:25,
-            c:1
+            c:1,
+            name: "start"
         },
         end:{
             x:75,
             y:125,
             m:35,
             c:0,
+            name: "target"
         },
         planets:[
             {

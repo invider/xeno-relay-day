@@ -1,7 +1,8 @@
 module.exports = function(e) {
+    var res = _.lab.start.getEnergyStartPoint()
     sys.spawn('dna/signal', 'lab', {
-        x: 500,
-        y: 450,
+        x: res.x,
+        y: res.y,
         e: 5,
     })
 }
