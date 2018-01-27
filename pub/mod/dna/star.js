@@ -4,6 +4,7 @@ const STROKE_STYLE = "blue";
 const SEQUENCE_EXEC_PERIOD = 0.4;
 
 let Star = function (dat) {
+    this.type = "star";
     this.timer = 0;
     this.x = dat.x;
     this.y = dat.y;
@@ -33,6 +34,12 @@ let Star = function (dat) {
 };
 
 Star.prototype.init = function () {
+};
+Star.prototype.applyCmd = function(cmd){
+    this.sequence.push(cmd);
+    if (cmd === _.lib.constants.commands.FIX_STAR){
+        this.execSequence();
+    }
 };
 Star.prototype.execute = function(cmd){
     switch (cmd){

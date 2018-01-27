@@ -18,8 +18,21 @@ let Signal = function(dat) {
 Signal.prototype.init = function() {
 };
 
+Signal.prototype.checkPlanetCollision = function(){
+    var my = this;
+    let star = $.lab._ls.find(function(obj){
+        if (obj.type == "star" && $.lib.math.distance(my.x, my.y, obj.x, obj.y) <= obj.orbitR){
+            return true;
+        }
+    });
+    if (star){
+        star.applyCmd(this.cmd);
+        this.__.detach(this);
+    }
+};
+
 Signal.prototype.evo = function(dt) {
-    this.e -= dt
+    this.e -= dt;
     if (this.e <= 0) {
         this.alive = false
         this.__.detach(this)
@@ -27,6 +40,7 @@ Signal.prototype.evo = function(dt) {
 
     this.x += this.dx * dt
     this.y += this.dy * dt
+    this.checkPlanetCollision();
 };
 
 Signal.prototype.draw = function() {
