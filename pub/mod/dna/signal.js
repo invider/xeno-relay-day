@@ -20,11 +20,7 @@ Signal.prototype.init = function() {
 
 Signal.prototype.checkPlanetCollision = function(){
     var my = this;
-    let star = $.lab._ls.find(function(obj){
-        if (obj.type == "star" && $.lib.math.distance(my.x, my.y, obj.x, obj.y) <= obj.orbitR){
-            return true;
-        }
-    });
+    let star = $.lab._ls.find(obj => obj.type == "star" && $.lib.math.distance(my.x, my.y, obj.x, obj.y) <= obj.orbitR);
     if (star){
         star.applyCmd(this.cmd);
         this.__.detach(this);
