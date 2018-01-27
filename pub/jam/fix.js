@@ -438,7 +438,8 @@ var Mod = function(initObj) {
             if (i >= 0) name = path.substring(i+1)
             else name = path
         }
-        let nmod = this.mod.attach(new Mod(), name)
+        let nmod = new Mod()
+        this.mod.attach(nmod, name)
         nmod.fix(nmod, path, 'fix')
     }
     augment(mod, new Frame())
@@ -518,7 +519,7 @@ Mod.prototype.draw = function() {
     if (!this.ctx) return
 
     if (!this.env.started) {
-        if (this.res._included > _scene.res._loaded) {
+        if (this.res._included > this.res._loaded) {
             // wait more and show boot nodes
             if (isFrame(this.boot)) {
                 for (let i = 0; i < this.boot._ls.length; i++) {
@@ -530,6 +531,10 @@ Mod.prototype.draw = function() {
             }
         }  else {
             // OK - everything is loaded, call setup functions
+            console.log('  ********* loaded - setup mod ' + this.name)
+            if (!this.setup) console.log('no setup!')
+            else console.dir(this.setup._ls)
+
             if (isFrame(this.setup)) {
                 this.setup._ls.forEach(f => {
                     f(_scene)
@@ -637,7 +642,7 @@ Mod.prototype.scan = function(target) {
     }
 }
 Mod.prototype.patch = function(target, path, node) {
-    //console.log('....patching @' + path + ' for ' + target.name)
+    console.log('....patching @' + path + ' for ' + target.name)
 
     if (!isMutable(target)) throw { src: this, msg: "can't attach to imutable node @" + path }
 
@@ -657,11 +662,12 @@ Mod.prototype.patch = function(target, path, node) {
         let nextName = path.substring(0, i)
         let nextPath = path.substring(i + 1)
         let nextNode = target[nextName]
-        if (!nextNode) {
-            // provide a new one
+        console.log('<-> ' + nextName + ' -> ' + nextPath)
 
+        if (!nextNode) {
+            // touch for a new node
             if (isFrame(target)) {
-                target.touch(nextName)
+                nextNode = target.touch(nextName)
             } else if (isObj(target) || isFun(target)) {
                 nextNode = {}
                 target[nextName] = nextNode
@@ -669,6 +675,8 @@ Mod.prototype.patch = function(target, path, node) {
                 this.log.err('unable to patch @' + path + ' - unable to attach [' + nextName + '] to parent')
                 return false
             }
+            return this.patch(nextNode, nextPath, node)
+
         } else if (!isFrame(nextNode) && !isObj(nextNode)) {
             this.log.err('unable to patch @' + path + ' - [' + nextName + '] is not valid for patching')
             return false
@@ -807,6 +815,9 @@ Mod.prototype.load = function(src, base, path, ext) {
         return script
         */
 
+        // store current mod for async access
+        let _ = this
+
         // can't use ajax on local resources
         var ajax = new XMLHttpRequest()
         ajax.onreadystatechange = function() {
@@ -827,13 +838,15 @@ Mod.prototype.load = function(src, base, path, ext) {
 
                     //_.log.debug('jam', 'scanning: ' + src + ' loaded: ' + _.res._resLoaded + '/' + _.res._resIncluded)
                     _.scan(scope)
+
                     // fix the mode if there is a value
                     if (val) {
-                        //_.log.debug('loader', 'we have a value @' + path)
                         _.patch(base, path, val)
                     } else if (module.exports) {
                         // no value is reture - try to find a value
                         _.patch(base, path, module.exports)
+                    } else {
+                        _scene.log.debug('no value obtained from ' + src)
                     }
                 //} catch (e) {
                 //    _scene.log.err('jam-loader', 'error in [' + src + ']' + e)
@@ -960,7 +973,6 @@ _scene.env.lastFrame = Date.now()
 _scene.env.mouseX = 0
 _scene.env.mouseY = 0
 _scene.env.keys = {}  // down key set
-
 
 
 

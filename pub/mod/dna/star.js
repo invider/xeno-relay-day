@@ -1,6 +1,7 @@
 const DISH_SCALE = 1.2;
 const ORBIT_DISTANCE = 10;
 const STROKE_STYLE = "blue";
+
 let Star = function (dat) {
     this.x = dat.x;
     this.y = dat.y;
