@@ -2,7 +2,7 @@
 let STAR_FQ = 2
 
 // star background
-return {
+module.exports =  {
 
     stars: [],
 
