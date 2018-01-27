@@ -10,7 +10,7 @@ return {
         let star = {
             a: true,
             c: this._.lib.math.rndi(3),
-            x: this._.lib.math.rndi(this._.env.width),
+            x: this._.env.width,
             y: this._.lib.math.rndi(this._.env.height),
             s: 10 + this._.lib.math.rndi(20),
             m: 3 + this._.lib.math.rndi(15),
