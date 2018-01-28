@@ -488,7 +488,7 @@ var Mod = function(initObj) {
 
         var fn = this.trap[key]
         if (isFun(fn)) {
-            fn(data)
+            if (fn(data) === false) return false
         }
 
         if (chain) {
@@ -497,6 +497,7 @@ var Mod = function(initObj) {
                 m.trap(key, data, chain)
             })
         }
+        return true
     }
     augment(trap, new Frame())
     this.attach(trap)
@@ -1172,11 +1173,13 @@ function handleKeyDown(e) {
     _scene.env.keys[code] = 1
     let ename = e.code.toLowerCase() + 'Down'
     _scene.log.debug('trap: ' + ename)
-    _scene.trap(ename, e, true)
+    let traped = _scene.trap(ename, e, true)
 
-    //e.preventDefault()
-    //e.stopPropagation()
-    //return false;
+    if (!traped)  {
+        e.preventDefault()
+        e.stopPropagation()
+        return false;
+    }
     return true
 }
 
@@ -1188,9 +1191,13 @@ function handleKeyUp(e) {
     _scene.log.debug('trap: ' + ename)
     _scene.trap(ename, e, true)
 
-    //e.preventDefault()
-    //e.stopPropagation()
-    //return false;
+    let traped = _scene.trap(ename, e, true)
+
+    if (!traped)  {
+        e.preventDefault()
+        e.stopPropagation()
+        return false;
+    }
     return true
 }
 

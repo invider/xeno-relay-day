@@ -31,15 +31,15 @@ module.exports = [
         planets:[
             {
                 x:35, y:25,
-                m:15, c:1,
+                m:20, c:1,
                 angle: rfi(),
             }, {
                 x:11, y:34,
-                m:15, c:0,
+                m:19, c:0,
                 angle: rfi(),
             }, {
                 x:42, y:10,
-                m:15, c:1,
+                m:22, c:1,
                 angle: rfi(),
             }, {
                 x:62, y:40,
@@ -47,11 +47,11 @@ module.exports = [
                 angle: rfi(),
             }, {
                 x:42, y:50,
-                m:20, c:1,
+                m:23, c:1,
                 angle: rfi(),
             }, {
                 x:30, y:35,
-                m:15, c:0,
+                m:24, c:0,
                 angle: rfi(),
             }, {
                 // earth-like close planet

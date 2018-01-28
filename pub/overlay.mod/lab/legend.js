@@ -1,13 +1,11 @@
 const SIGNAL_WIDTH = 10
 const SIGNAL_MARGIN = 3;
-let Legend = function(dat) {
+let Legend = function() {
     this.x = 10;
     this.y = 50;
-    debugger;
 };
 
 Legend.prototype.init = function() {
-    debugger;
 };
 
 Legend.prototype.evo = function(dt) {
@@ -30,6 +28,5 @@ Legend.prototype.draw = function() {
     ctx.stroke();
 };
 
-module.exports = function(dat) {
-    return new Legend(dat);
-};
+module.exports = new Legend();
+
