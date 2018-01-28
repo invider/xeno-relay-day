@@ -66,7 +66,8 @@ Star.prototype.execute = function(cmd){
             // check if the planet can be fixed
             if (this.targetStar) {
                 // success!!! victory!!!
-                
+                this.c = 3
+                this.mapRes()
             }
             break;
     }
