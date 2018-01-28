@@ -14,6 +14,7 @@ Legend.prototype.evo = function(dt) {
 Legend.prototype.drawLegendLine = function(cmd, y){
     ctx.fillStyle = cmd.color;
     ctx.font = SIGNAL_WIDTH + "px Arial";
+    ctx.align ="left";
     ctx.fillRect(this.x, y - SIGNAL_WIDTH,  SIGNAL_WIDTH, SIGNAL_WIDTH);
     ctx.fillText(cmd.description, this.x + SIGNAL_MARGIN + SIGNAL_WIDTH, y);
 
