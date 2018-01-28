@@ -24,14 +24,13 @@ return {
         return list.length
     },
     spawn: function(source, target, spawnData) {
-        this._.log.debug('~~~ spawning ' + source + ' -> ' + target)
+        //this._.log.debug('~~~ spawning ' + source + ' -> ' + target)
 
         let cons = source
         if (this._.sys.isString(source)) {
             cons = this._.selectOne(source)
             if (!cons) throw "can't find the spawn dna: " + source
         }
-        this._.log.debug('~~~ cons name ' + cons.name)
 
         let dest = target
         if (!target || target === '') {

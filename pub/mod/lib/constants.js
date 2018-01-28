@@ -14,5 +14,4 @@ module.exports = {
         }
     },
     ROTATE_ANGLE: Math.PI / 6
-
 };

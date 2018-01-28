@@ -40,7 +40,11 @@ Signal.prototype.evo = function(dt) {
 };
 
 Signal.prototype.draw = function() {
-    ctx.fillStyle = this.cmd.color || '#FFFF00';
+    if (this.cmd) {
+        ctx.fillStyle = this.cmd.color || '#FFFF00';
+    } else {
+        ctx.fillStyle = '#FFFF00';
+    }
     ctx.beginPath();
     ctx.arc(this.x, this.y, 5 ,0,2*Math.PI);
     ctx.fill();

@@ -638,8 +638,6 @@ Mod.prototype.scan = function(target) {
     }
 }
 Mod.prototype.patch = function(target, path, node) {
-    console.log('....patching @' + path + ' for ' + target.name)
-
     if (!isMutable(target)) throw { src: this, msg: "can't attach to imutable node @" + path }
 
     if (path.startsWith('@')) path = path.substring(1)
@@ -658,7 +656,6 @@ Mod.prototype.patch = function(target, path, node) {
         let nextName = path.substring(0, i)
         let nextPath = path.substring(i + 1)
         let nextNode = target[nextName]
-        console.log('<-> ' + nextName + ' -> ' + nextPath)
 
         if (!nextNode) {
             // touch for a new node
