@@ -12,6 +12,7 @@ let setDefaults = function(star){
     }
     return res;
 };
+
 module.exports = function(){
     let lvlData = _.lib.levels[$.env.gameInfo.level - 1];
     console.log("Level data:", lvlData);
