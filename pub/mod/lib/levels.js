@@ -43,7 +43,7 @@ module.exports = [
                 angle: rfi(),
             }, {
                 x:62, y:40,
-                m:20, c:0,
+                m:33, c:0,
                 angle: rfi(),
             }, {
                 x:42, y:50,
@@ -68,11 +68,11 @@ module.exports = [
                 angle: rfi(),
             }, {
                 x:20, y:70,
-                m:20, c:1,
+                m:26, c:1,
                 angle: rfi(),
             }, {
-                x:58, y:65,
-                m:20, c:1,
+                x:58, y:68,
+                m:30, c:1,
                 angle: rfi(),
             },
         ]
