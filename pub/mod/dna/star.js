@@ -21,13 +21,13 @@ let Star = function (dat) {
 
     switch (this.c) {
         case 0:
-            this.img = res['star-red'];
+            this.img = res['planet-mtype'];
             break;
         case 1:
-            this.img = res['star-blue'];
+            this.img = res['planet-mtype'];
             break;
         case 2:
-            this.img = res['star-yellow'];
+            this.img = res['planet-mtype'];
             break;
     }
     this.antennaImg = res['star-antenna'];
@@ -113,6 +113,8 @@ Star.prototype.drawAntenna = function(){
     ctx.save();
     ctx.translate(res.x, res.y);
     ctx.rotate(- this.angle);
+
+    ctx.imageSmoothingEnabled = false
     ctx.drawImage(this.antennaImg,
         -this.antennaImg.width * DISH_SCALE,
         -this.antennaImg.height * DISH_SCALE,
@@ -123,6 +125,7 @@ Star.prototype.drawAntenna = function(){
 };
 
 Star.prototype.draw = function () {
+    ctx.imageSmoothingEnabled = false
     ctx.drawImage(this.img, this.x - this.m, this.y - this.m, this.m * 2, this.m * 2)
     this.drawAntenna();
     ctx.beginPath();
