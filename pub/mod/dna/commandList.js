@@ -33,7 +33,7 @@ CommandList.prototype.getStartY = function(){
 
 CommandList.prototype.drawItem = function(cmd, index){
     ctx.fillStyle = cmd.color;
-    ctx.fillRect(this.getStartX() + (index * SIGNAL_WIDTH + SIGNAL_MARGIN), this.getStartY(), SIGNAL_WIDTH, SIGNAL_WIDTH);
+    ctx.fillRect(SIGNAL_MARGIN + this.getStartX() + index * (SIGNAL_WIDTH + SIGNAL_MARGIN), this.getStartY() + SIGNAL_MARGIN, SIGNAL_WIDTH, SIGNAL_WIDTH);
 };
 
 CommandList.prototype.drawItems = function(){
@@ -46,7 +46,7 @@ CommandList.prototype.drawItems = function(){
 CommandList.prototype.draw = function() {
     if (this.getItemsCount()){
         ctx.beginPath();
-        ctx.rect(this.getStartX(), this.getStartY(), this.getItemsCount() * (SIGNAL_WIDTH + SIGNAL_MARGIN), LIST_HEIGHT);
+        ctx.rect(this.getStartX(), this.getStartY(), this.getItemsCount() * (SIGNAL_WIDTH + SIGNAL_MARGIN) + SIGNAL_MARGIN, LIST_HEIGHT);
         ctx.stroke();
         this.drawItems();
     }
