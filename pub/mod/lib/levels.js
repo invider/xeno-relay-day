@@ -5,50 +5,73 @@
 
 const HOUR = Math.PI / 6;
 
+let rfi = function() {
+    return Math.floor((Math.random() * 12)) * HOUR
+}
+
 module.exports = [
     {
         name:"Try to solve",
         description:"",
+
         start:{
-            x:80,
-            y:80,
-            m:35,
-            c:3,
-            name: "start"
+            x:80, y:80,
+            m:35, c:3,
+            name: "start",
+            angle: 9 * HOUR,
         },
         end:{
-            x:15,
-            y:15,
-            m:30,
-            c:2,
-            name: "target"
+            x:15, y:15,
+            m:30, c:2,
+            name: "target",
+            angle: 8 * HOUR,
         },
 
         planets:[
             {
                 x:35, y:25,
                 m:15, c:1,
-                angle: 5 * HOUR
+                angle: rfi(),
             }, {
                 x:11, y:34,
                 m:15, c:0,
-                angle:6 * HOUR
+                angle: rfi(),
             }, {
                 x:42, y:10,
                 m:15, c:1,
-                angle:7 * HOUR
+                angle: rfi(),
             }, {
                 x:62, y:40,
                 m:20, c:0,
-                angle:7 * HOUR
+                angle: rfi(),
             }, {
                 x:42, y:50,
                 m:20, c:1,
-                angle:7 * HOUR
+                angle: rfi(),
             }, {
                 x:30, y:35,
                 m:15, c:0,
-                angle:7 * HOUR
+                angle: rfi(),
+            }, {
+                x:75, y:60,
+                m:24, c:0,
+                angle: rfi(),
+            }, {
+                x:85, y:28,
+                m:25, c:0,
+                angle: rfi(),
+            }, {
+                x:66, y:15,
+                m:25, c:0,
+                angle: rfi(),
+            }, {
+                x:20, y:70,
+                m:20, c:1,
+                angle: rfi(),
+            }, {
+                x:58, y:65,
+                m:20, c:1,
+                angle: rfi(),
             },
         ]
     }

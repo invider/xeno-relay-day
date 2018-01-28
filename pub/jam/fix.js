@@ -1170,22 +1170,28 @@ function handleKeyDown(e) {
     var code = e.which || e.keyCode
 
     _scene.env.keys[code] = 1
-    _scene.trap(e.code.toLowerCase() + 'Down', e, true)
+    let ename = e.code.toLowerCase() + 'Down'
+    _scene.log.debug('trap: ' + ename)
+    _scene.trap(ename, e, true)
 
-    e.preventDefault()
-    e.stopPropagation()
-    return false;
+    //e.preventDefault()
+    //e.stopPropagation()
+    //return false;
+    return true
 }
 
 function handleKeyUp(e) {
     var code = e.which || e.keyCode
     delete _scene.env.keys[code]
 
-    _scene.trap(e.code.toLowerCase() + 'Up', e, true)
+    let ename = e.code.toLowerCase() + 'Up'
+    _scene.log.debug('trap: ' + ename)
+    _scene.trap(ename, e, true)
 
-    e.preventDefault()
-    e.stopPropagation()
-    return false;
+    //e.preventDefault()
+    //e.stopPropagation()
+    //return false;
+    return true
 }
 
 
