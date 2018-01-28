@@ -13,6 +13,7 @@ let Star = function (dat) {
     this.sequence = [];
     this.executing = false;
     this.sending = false;
+    this.allowCommandReceiving = true;
 
     // setup color
     this.c = dat.c;
@@ -44,11 +45,12 @@ Star.prototype.init = function () {
     let commandList = sys.spawn('dna/commandList', 'lab', this);
     commandList.star = this;
 };
+
 Star.prototype.applyCmd = function(cmd){
     if (!cmd){
         throw new Error("Error, command cannot be false");
     }
-    if (this.startStar && (this.executing || this.sending)){
+    if (this.startStar && !this.allowCommandReceiving){
         return;
     }
     if (cmd === _.lib.constants.commands.EOT){
@@ -120,6 +122,7 @@ Star.prototype.evo = function (dt) {
 };
 
 Star.prototype.execSequence = function(){
+    this.allowCommandReceiving = false;
     this.executing = true;
 };
 

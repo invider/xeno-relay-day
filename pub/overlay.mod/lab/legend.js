@@ -21,8 +21,8 @@ Legend.prototype.draw = function() {
 
     ctx.beginPath();
     let y = this.y;
-    for (let k in _.lib.constants.commands){
-        this.drawLegendLine(_.lib.constants.commands[k], y);
+    for (let k in $.lib.constants.commands){
+        this.drawLegendLine($.lib.constants.commands[k], y);
         y += SIGNAL_WIDTH + SIGNAL_MARGIN;
     }
     ctx.stroke();

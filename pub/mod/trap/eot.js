@@ -7,4 +7,5 @@ module.exports = function(){
             p.sending = false
         }
     })
+    lab.start.allowCommandReceiving = true;
 };
