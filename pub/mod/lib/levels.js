@@ -21,7 +21,8 @@ module.exports = [
             angle: 9 * HOUR,
         },
         end:{
-            x:15, y:15,
+            //x:15, y:15,
+            x:60, y:78,
             m:30, c:2,
             name: "target",
             angle: 8 * HOUR,

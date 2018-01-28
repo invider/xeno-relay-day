@@ -46,7 +46,7 @@ Star.prototype.init = function () {
 };
 Star.prototype.applyCmd = function(cmd){
     this.sequence.push(cmd);
-    if (cmd === _.lib.constants.commands.FIX_STAR){
+    if (cmd === _.lib.constants.commands.EOT){
         this.execSequence();
     }
 };
@@ -56,16 +56,18 @@ Star.prototype.execute = function(cmd){
             this.sending = true;
             break;
         case _.lib.constants.commands.ROTATE_RIGHT:
-            this.rotateAntenna(_.lib.constants.ROTATE_ANGLE);
-            break;
-        case _.lib.constants.commands.ROTATE_LEFT:
             this.rotateAntenna(-_.lib.constants.ROTATE_ANGLE);
             break;
+        case _.lib.constants.commands.ROTATE_LEFT:
+            this.rotateAntenna(_.lib.constants.ROTATE_ANGLE);
+            break;
 
-        case _.lib.constants.commands.FIX_STAR:
-            //
-            //  TODO: implement star fixing behavior
-            //
+        case _.lib.constants.commands.EOT:
+            // check if the planet can be fixed
+            if (this.targetStar) {
+                // success!!! victory!!!
+                
+            }
             break;
     }
 };

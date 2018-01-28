@@ -9,7 +9,7 @@ module.exports = {
         SEND_TO_NEXT_PLANET:{
             color:'#00FF00'
         },
-        FIX_STAR:{
+        EOT:{
             color:'#0000FF'
         }
     },
