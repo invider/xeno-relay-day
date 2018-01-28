@@ -1,4 +1,4 @@
-const SIGNAL_WIDTH = 10
+const SIGNAL_WIDTH = 20
 const SIGNAL_MARGIN = 3;
 let Legend = function() {
     this.x = 10;

@@ -1006,6 +1006,8 @@ function bootstrap() {
         // style body
         document.body.style.margin = "0"
         document.body.style.padding = "0"
+        document.body.style.overflow = "hiddenq";
+        document.body.setAttribute("scroll", "no");
     }
     _scene.ctx = canvas.getContext("2d")
 
