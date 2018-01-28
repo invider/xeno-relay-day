@@ -99,7 +99,7 @@ Star.prototype.tryToExecCmd = function(){
                 x: res.x,
                 y: res.y,
                 a: this.angle,
-                e: 5,
+                e: 10,
                 spawnedBy:this,
                 cmd: cmd
             });
