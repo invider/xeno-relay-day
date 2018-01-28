@@ -2,7 +2,7 @@ const SIGNAL_WIDTH = 20
 const SIGNAL_MARGIN = 3;
 let Legend = function() {
     this.x = 10;
-    this.y = 50;
+    this.y = 25;
 };
 
 Legend.prototype.init = function() {

@@ -2,11 +2,11 @@ module.exports = {
     commands:{
         ROTATE_LEFT:{
             color:'#FFFF00',
-            description:"Rotate dish left"
+            description:"Rotate transmitter left"
         },
         ROTATE_RIGHT:{
             color:'#FF0000',
-            description:"Rotate dish right"
+            description:"Rotate transmitter right"
         },
         SEND_TO_NEXT_PLANET:{
             color:'#00FF00',
@@ -15,7 +15,7 @@ module.exports = {
         },
         EOT:{
             color:'#0000FF',
-            description:"End of transaction"
+            description:"End of transmission"
         }
     },
     ROTATE_ANGLE: Math.PI / 6

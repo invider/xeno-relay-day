@@ -21,8 +21,8 @@ module.exports = [
             angle: 9 * HOUR,
         },
         end:{
-            //x:15, y:15,
-            x:55, y:84,
+            x:15, y:25,
+            //x:55, y:84,
             m:30, c:2,
             name: "target",
             angle: 8 * HOUR,
@@ -34,7 +34,7 @@ module.exports = [
                 m:20, c:1,
                 angle: rfi(),
             }, {
-                x:11, y:34,
+                x:11, y:50,
                 m:19, c:0,
                 angle: rfi(),
             }, {
