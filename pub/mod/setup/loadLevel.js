@@ -21,4 +21,5 @@ module.exports = function(){
     let start = sys.spawn('dna/star', 'lab', setDefaults(lvlData.start));
     start.startStar = true;
     sys.spawn('dna/star', 'lab', setDefaults(lvlData.end));
+
 };

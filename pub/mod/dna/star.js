@@ -15,7 +15,7 @@ let Star = function (dat) {
     this.orbitR = this.m + ORBIT_DISTANCE;
     this.angle = dat.angle;
 
-    this.mapRes()
+    this.mapRes();
     this.antennaImg = res['star-antenna'];
 };
 
@@ -37,6 +37,7 @@ Star.prototype.mapRes = function() {
 }
 
 Star.prototype.init = function () {
+    sys.spawn('dna/commandList', 'lab', this);
 };
 Star.prototype.applyCmd = function(cmd){
     this.sequence.push(cmd);
@@ -137,6 +138,7 @@ Star.prototype.draw = function () {
     ctx.setLineDash([5, 3]);
     ctx.arc(this.x, this.y, this.orbitR, 0, 2 * Math.PI);
     ctx.stroke();
+    ctx.setLineDash([]);
     this.drawAntenna();
 };
 

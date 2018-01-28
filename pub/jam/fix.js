@@ -135,25 +135,28 @@ Frame.prototype.attach = function(node, name) {
 Frame.prototype.onAttached = function(node, name, parent) {
     this.__.onAttached(node, name, parent)
 };
+//
+//
+//
 Frame.prototype.detach = function(node) {
     if (!node) {
         if (this.name) {
-            this.__.detachByName(node.name)
+            this.__.detachByName(node.name);
         } else {
-            let i = this.__._ls.indexOf(this)
+            let i = this.__._ls.indexOf(this);
             if (i >= 0) {
                 // find index on parent
-                this.__._ls.splice(i, 1)
+                this.__._ls.splice(i, 1);
             }
         }
     } else {
         if (node.name) {
-            this.detachByName(node.name)
+            this.detachByName(node.name);
         } else {
-            let i = this._ls.indexOf(node)
+            let i = this._ls.indexOf(node);
             if (i >= 0) {
                 // find index on parent
-                this._ls.splice(i, 1)
+                this._ls.splice(i, 1);
             }
         }
     }
@@ -169,7 +172,17 @@ Frame.prototype.detachByName = function(name) {
     if (obj === undefined){
         throw new Error("No node with name:" + name);
     }
-    if (this[name].finish) this[name].finish()
+    //
+    //  FINISH called when element detached
+    //
+    if (this[name].finish) this[name].finish();
+    if (obj.propagateDetach){
+        if (obj.propagateDetach instanceof Array){
+            obj.propagateDetach.forEach(o => o.__.detach(o));
+        } else {
+            obj.propagateDetach.__.detach(obj.propagateDetach);
+        }
+    }
 
     delete this[name];
     delete this._dir[name];
