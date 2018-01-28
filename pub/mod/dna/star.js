@@ -48,6 +48,9 @@ Star.prototype.applyCmd = function(cmd){
     if (!cmd){
         throw new Error("Error, command cannot be false");
     }
+    if (this.startStar && (this.executing || this.sending)){
+        return;
+    }
     if (cmd === _.lib.constants.commands.EOT){
         //
         //  INFO: this is a spike!!!!
