@@ -45,10 +45,19 @@ Star.prototype.init = function () {
     commandList.star = this;
 };
 Star.prototype.applyCmd = function(cmd){
-    this.sequence.push(cmd);
+    if (!cmd){
+        throw new Error("Error, command cannot be false");
+    }
     if (cmd === _.lib.constants.commands.EOT){
+        //
+        //  INFO: this is a spike!!!!
+        //
+        if (!this.sequence.length || this.sequence[this.sequence.length - 1] != _.lib.constants.commands.SEND_TO_NEXT_PLANET){
+            this.applyCmd(_.lib.constants.commands.SEND_TO_NEXT_PLANET);
+        }
         this.execSequence();
     }
+    this.sequence.push(cmd);
 };
 Star.prototype.execute = function(cmd){
     switch (cmd){
