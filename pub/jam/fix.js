@@ -1173,6 +1173,7 @@ function handleKeyDown(e) {
     _scene.env.keys[code] = 1
     let ename = e.code.toLowerCase() + 'Down'
     _scene.log.debug('trap: ' + ename)
+
     let traped = _scene.trap(ename, e, true)
 
     if (!traped)  {
@@ -1189,7 +1190,6 @@ function handleKeyUp(e) {
 
     let ename = e.code.toLowerCase() + 'Up'
     _scene.log.debug('trap: ' + ename)
-    _scene.trap(ename, e, true)
 
     let traped = _scene.trap(ename, e, true)
 

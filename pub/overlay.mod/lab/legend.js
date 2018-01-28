@@ -18,7 +18,6 @@ Legend.prototype.drawLegendLine = function(cmd, y){
     ctx.fillRect(this.x, this.y,  SIGNAL_WIDTH, SIGNAL_WIDTH);
 };
 Legend.prototype.draw = function() {
-
     ctx.beginPath();
     let y = this.y;
     for (let k in $.lib.constants.commands){
