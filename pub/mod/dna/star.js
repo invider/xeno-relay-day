@@ -37,7 +37,8 @@ Star.prototype.mapRes = function() {
 }
 
 Star.prototype.init = function () {
-    sys.spawn('dna/commandList', 'lab', this);
+    let commandList = sys.spawn('dna/commandList', 'lab', this);
+    commandList.star = this;
 };
 Star.prototype.applyCmd = function(cmd){
     this.sequence.push(cmd);
