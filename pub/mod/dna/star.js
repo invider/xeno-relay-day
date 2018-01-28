@@ -1,8 +1,4 @@
-const DISH_SCALE = 1.2;
-const ORBIT_DISTANCE = 10;
-const STROKE_STYLE = "blue";
-const SEQUENCE_EXEC_PERIOD = 0.4;
-
+const DISH_SCALE = 0.7; const ORBIT_DISTANCE = 20; const STROKE_STYLE = "blue"; const SEQUENCE_EXEC_PERIOD = 0.4; 
 let Star = function (dat) {
     this.type = "star";
     this.timer = 0;
@@ -19,19 +15,26 @@ let Star = function (dat) {
     this.orbitR = this.m + ORBIT_DISTANCE;
     this.angle = dat.angle;
 
+    this.mapRes()
+    this.antennaImg = res['star-antenna'];
+};
+
+Star.prototype.mapRes = function() {
     switch (this.c) {
         case 0:
             this.img = res['planet-mtype'];
             break;
         case 1:
-            this.img = res['planet-mtype'];
+            this.img = res['planet-barren'];
             break;
         case 2:
-            this.img = res['planet-mtype'];
+            this.img = res['planet-mars'];
+            break;
+        case 3:
+            this.img = res['planet-cybertron'];
             break;
     }
-    this.antennaImg = res['star-antenna'];
-};
+}
 
 Star.prototype.init = function () {
 };
@@ -127,12 +130,14 @@ Star.prototype.drawAntenna = function(){
 Star.prototype.draw = function () {
     ctx.imageSmoothingEnabled = false
     ctx.drawImage(this.img, this.x - this.m, this.y - this.m, this.m * 2, this.m * 2)
-    this.drawAntenna();
+
+    // orbit and dish
     ctx.beginPath();
     ctx.strokeStyle = STROKE_STYLE;
     ctx.setLineDash([5, 3]);
     ctx.arc(this.x, this.y, this.orbitR, 0, 2 * Math.PI);
     ctx.stroke();
+    this.drawAntenna();
 };
 
 module.exports = function (dat) {
