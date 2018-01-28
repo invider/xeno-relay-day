@@ -10,60 +10,44 @@ module.exports = [
         name:"Try to solve",
         description:"",
         start:{
-            x:250,
-            y:200,
+            x:80,
+            y:80,
             m:35,
             c:3,
             name: "start"
         },
         end:{
-            x:75,
-            y:125,
+            x:15,
+            y:15,
             m:30,
             c:2,
             name: "target"
         },
+
         planets:[
             {
-                x:350,
-                y:250,
-                m:15,
-                c:1,
-                angle:5 * HOUR
-            },
-            {
-                x:110,
-                y:340,
-                m:15,
-                c:0,
+                x:35, y:25,
+                m:15, c:1,
+                angle: 5 * HOUR
+            }, {
+                x:11, y:34,
+                m:15, c:0,
                 angle:6 * HOUR
-            },
-            {
-                x:420,
-                y:100,
-                m:15,
-                c:1,
+            }, {
+                x:42, y:10,
+                m:15, c:1,
                 angle:7 * HOUR
-            },
-            {
-                x:620,
-                y:400,
-                m:20,
-                c:0,
+            }, {
+                x:62, y:40,
+                m:20, c:0,
                 angle:7 * HOUR
-            },
-            {
-                x:420,
-                y:500,
-                m:20,
-                c:1,
+            }, {
+                x:42, y:50,
+                m:20, c:1,
                 angle:7 * HOUR
-            },
-            {
-                x:300,
-                y:350,
-                m:15,
-                c:0,
+            }, {
+                x:30, y:35,
+                m:15, c:0,
                 angle:7 * HOUR
             },
         ]

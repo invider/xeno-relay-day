@@ -1,9 +1,13 @@
-const DISH_SCALE = 0.7; const ORBIT_DISTANCE = 20; const STROKE_STYLE = "blue"; const SEQUENCE_EXEC_PERIOD = 0.4; 
+const DISH_SCALE = 0.7;
+const ORBIT_DISTANCE = 20;
+const STROKE_STYLE = "blue";
+const SEQUENCE_EXEC_PERIOD = 0.4; 
+
 let Star = function (dat) {
     this.type = "star";
     this.timer = 0;
-    this.x = dat.x;
-    this.y = dat.y;
+    this.x = dat.x/100 * ctx.width;
+    this.y = dat.y/100 * ctx.height;
     this.m = dat.m;
     this.name = dat.name;
     this.sequence = [];
