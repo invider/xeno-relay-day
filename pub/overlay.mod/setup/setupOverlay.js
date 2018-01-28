@@ -3,9 +3,9 @@ module.exports = function(_) {
 
     // show story
     sys.spawn('dna/scroll', 'lab', {
-        x: 600,
+        x: 100,
         y: 100,
         txt: env.story,
-        ttl: 10,
+        ttl: 20,
     })
 };

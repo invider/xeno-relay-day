@@ -79,6 +79,8 @@ Star.prototype.execute = function(cmd){
                 // success!!! victory!!!
                 this.c = 3
                 this.mapRes()
+                _.trap('eot')
+                _.trap('win')
             }
             break;
     }

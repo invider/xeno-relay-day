@@ -5,7 +5,7 @@ module.exports = function(_) {
     _.mod('overlay.mod')
 
     // add a mod layer to show statistics
-    _.mod('fix/stat')
+    //_.mod('fix/stat')
 
     /*
     // show story

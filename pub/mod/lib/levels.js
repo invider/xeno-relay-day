@@ -22,7 +22,7 @@ module.exports = [
         },
         end:{
             //x:15, y:15,
-            x:60, y:78,
+            x:55, y:84,
             m:30, c:2,
             name: "target",
             angle: 8 * HOUR,
@@ -54,8 +54,9 @@ module.exports = [
                 m:15, c:0,
                 angle: rfi(),
             }, {
-                x:75, y:60,
-                m:24, c:0,
+                // earth-like close planet
+                x:70, y:60,
+                m:28, c:0,
                 angle: rfi(),
             }, {
                 x:85, y:28,
