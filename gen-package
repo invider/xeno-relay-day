@@ -1,0 +1,11 @@
+#!/bin/sh
+
+./gen
+cp -r pub xeno
+
+tar cfzv xeno.tar.gz ./xeno
+
+echo 'Package is generated'
+
+rm -rf ./xeno
+

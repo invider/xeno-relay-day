@@ -5,3 +5,5 @@ rm -f package-lock.json
 rm -f man/*pdf
 rm -f pub/topology
 
+rm -f *.tar.gz
+

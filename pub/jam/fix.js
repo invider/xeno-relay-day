@@ -531,10 +531,6 @@ Mod.prototype.draw = function() {
             }
         }  else {
             // OK - everything is loaded, call setup functions
-            console.log('  ********* loaded - setup mod ' + this.name)
-            if (!this.setup) console.log('no setup!')
-            else console.dir(this.setup._ls)
-
             if (isFrame(this.setup)) {
                 this.setup._ls.forEach(f => {
                     f(_scene)

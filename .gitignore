@@ -51,6 +51,8 @@ typings/
 
 # Output of 'npm pack'
 *.tgz
+*.tar
+*.tar.gz
 
 # Yarn Integrity file
 .yarn-integrity
@@ -60,3 +62,10 @@ typings/
 
 # MacOS X
 .DS_Store
+
+# project-specific
+*topology
+
+# invasionwave specific 
+invasionwave-publish
+
