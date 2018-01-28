@@ -52,8 +52,10 @@ Star.prototype.applyCmd = function(cmd){
         //
         //  INFO: this is a spike!!!!
         //
-        if (!this.sequence.length || this.sequence[this.sequence.length - 1] != _.lib.constants.commands.SEND_TO_NEXT_PLANET){
-            this.applyCmd(_.lib.constants.commands.SEND_TO_NEXT_PLANET);
+        if (!this.targetStar){
+            if (!this.sequence.length || this.sequence[this.sequence.length - 1] != _.lib.constants.commands.SEND_TO_NEXT_PLANET){
+                this.applyCmd(_.lib.constants.commands.SEND_TO_NEXT_PLANET);
+            }
         }
         this.execSequence();
     }
