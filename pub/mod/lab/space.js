@@ -1,28 +1,42 @@
 
 let STAR_FQ = 0.8
+let METEOR_FQ = 0.2
 
 // star background
 module.exports =  {
 
     stars: [],
 
-    newStar: function() {
+    newStar: function(falling) {
         let star = {
             a: true,
+            falling: falling,
             c: this._.lib.math.rndi(3),
             x: this._.env.width,
             y: this._.lib.math.rndi(this._.env.height),
             s: 4 + this._.lib.math.rndi(8),
             m: 5 + this._.lib.math.rndi(10),
         }
+        if (falling) {
+            star = {
+                a: true,
+                falling: falling,
+                c: this._.lib.math.rndi(3),
+                x: this._.lib.math.rndi(this._.env.width*2),
+                y: -20,
+                dx: -50 - lib.math.rndi(150),
+                dy: 300 + lib.math.rndi(300),
+                m: 4 + this._.lib.math.rndi(5),
+            }
+        }
 
+        // place the star
         for (let i = 0; i < this.stars.length; i++) {
             if (!this.stars[i].a) {
                 this.stars[i] = star
                 return
             }
         }
-
         this.stars.push(star)
     },
 
@@ -33,12 +47,19 @@ module.exports =  {
     },
 
     evo: function(dt) {
-        if (this._.lib.math.rndf() < STAR_FQ * dt) this.newStar()
+        if (this._.lib.math.rndf() < STAR_FQ * dt) this.newStar(false)
+        if (this._.lib.math.rndf() < METEOR_FQ * dt) this.newStar(true)
 
         // move stars
         this.stars.forEach( star => {
-            star.x -= star.s * dt
-            if (star.x < 0) star.a = false
+            if (star.falling) {
+                star.x += star.dx * dt
+                star.y += star.dy * dt
+                if (star.y > env.height) star.a = false
+            } else {
+                star.x -= star.s * dt
+                if (star.x < 0) star.a = false
+            }
         })
     },
 
