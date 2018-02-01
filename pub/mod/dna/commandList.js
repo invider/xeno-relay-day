@@ -1,6 +1,6 @@
-const SIGNAL_WIDTH = 10
+const SIGNAL_WIDTH = 21
 const LIST_WIDTH = 500;
-const LIST_HEIGHT = 15;
+const LIST_HEIGHT = 26;
 const SIGNAL_MARGIN = 3;
 let CommandList = function(dat) {
     //
@@ -10,7 +10,6 @@ let CommandList = function(dat) {
 };
 
 CommandList.prototype.init = function() {
-
 };
 
 CommandList.prototype.evo = function(dt) {
@@ -32,8 +31,11 @@ CommandList.prototype.getStartY = function(){
 };
 
 CommandList.prototype.drawItem = function(cmd, index){
-    ctx.fillStyle = cmd.color;
-    ctx.fillRect(SIGNAL_MARGIN + this.getStartX() + index * (SIGNAL_WIDTH + SIGNAL_MARGIN), this.getStartY() + SIGNAL_MARGIN, SIGNAL_WIDTH, SIGNAL_WIDTH);
+    //ctx.fillStyle = cmd.color;
+    //ctx.fillRect(SIGNAL_MARGIN + this.getStartX() + index * (SIGNAL_WIDTH + SIGNAL_MARGIN), this.getStartY() + SIGNAL_MARGIN, SIGNAL_WIDTH, SIGNAL_WIDTH);
+
+    ctx.drawImage(res[cmd.img], SIGNAL_MARGIN + this.getStartX() + index * (SIGNAL_WIDTH + SIGNAL_MARGIN), this.getStartY() + SIGNAL_MARGIN, SIGNAL_WIDTH, SIGNAL_WIDTH);
+
 };
 
 CommandList.prototype.drawItems = function(){

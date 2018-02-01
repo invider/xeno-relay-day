@@ -485,20 +485,24 @@ var Mod = function(initObj) {
     // container for traps
     var trap = function trap(key, data, chain) {
         //_scene.log.debug('trapping ' + key)
+        trap.echo(key, data, chain)
+    }
 
-        var fn = this.trap[key]
+    trap.echo = function(key, data, chain) {
+        var fn = trap[key]
         if (isFun(fn)) {
             if (fn(data) === false) return false
         }
 
         if (chain) {
             // propagate event
-            this.mod._ls.forEach( m => {
+            this._.mod._ls.forEach( m => {
                 m.trap(key, data, chain)
             })
         }
         return true
     }
+
     augment(trap, new Frame())
     this.attach(trap)
 }
@@ -837,9 +841,9 @@ Mod.prototype.load = function(src, base, path, ext) {
                     var module = {}
 
                     // provide lexical scope for mod context and scope object for this. definitions
-                    code = '(function ' + name + '(_, ctx, module, sys, lib, res, dna, env, lab, mod, log) {'
+                    code = '(function ' + name + '(_, ctx, module, sys, lib, res, dna, env, lab, mod, log, trap) {'
                         + code
-                    + '}).call(scope, _, _.ctx, module, _.sys, _.lib, _.res, _.dna, _.env, _.lab, _.mod, _.log)'
+                    + '}).call(scope, _, _.ctx, module, _.sys, _.lib, _.res, _.dna, _.env, _.lab, _.mod, _.log, _.trap)'
 
                     let val = eval(code)
 
@@ -895,7 +899,9 @@ Mod.prototype.fix = function(target, base, ignore) {
             currentMod.res._loaded++
         }
     }
-    ajax.open("GET", 'topology', true);
+
+    let src = 'topology' + "?" + Math.random() // fix possible cache issue
+    ajax.open("GET", src, true);
     ajax.send();
 }
 

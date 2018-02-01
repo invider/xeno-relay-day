@@ -1,4 +1,5 @@
 module.exports = function(){
-    _.lab.start.applyCmd(_.lib.constants.commands.SEND_TO_NEXT_PLANET);
+    _.lab.start.applyCmd(_.lib.constants.commands.EOT);
+    _.lab.start.execSequence();
     return false;
 };

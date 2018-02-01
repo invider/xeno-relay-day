@@ -1,20 +1,24 @@
 module.exports = {
     commands:{
         ROTATE_LEFT:{
-            color:'#FFFF00',
+            img: 'signal-left',
+            color:'#40FF00',
             description:"Rotate transmitter left"
         },
         ROTATE_RIGHT:{
-            color:'#FF0000',
+            img: 'signal-right',
+            color:'#FFFF00',
             description:"Rotate transmitter right"
         },
         SEND_TO_NEXT_PLANET:{
-            color:'#00FF00',
+            img: 'signal-relay',
+            color:'#4000FF',
             description:"Send sequence to next planet"
 
         },
         EOT:{
-            color:'#0000FF',
+            img: 'signal-transmit',
+            color:'#FF2040',
             description:"End of transmission"
         }
     },

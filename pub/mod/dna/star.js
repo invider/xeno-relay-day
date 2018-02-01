@@ -27,17 +27,20 @@ let Star = function (dat) {
 Star.prototype.mapRes = function() {
     switch (this.c) {
         case 0:
-            this.img = res['planet-mtype'];
-            break;
-        case 1:
-            this.img = res['planet-barren'];
-            break;
-        case 2:
-            this.img = res['planet-mars'];
-            break;
-        case 3:
             this.img = res['planet-cybertron'];
             break;
+        case 1:
+            this.img = res['planet-mars'];
+            break;
+
+        case 2: this.img = res['planet-mtype']; break;
+        case 3: this.img = res['planet-barren']; break;
+        case 4: this.img = res['big-planet-ice']; break;
+        case 5: this.img = res['big-planet-ice-structures']; break;
+        case 6: this.img = res['big-planet-jungle']; break;
+        case 7: this.img = res['big-planet-jupiter']; break;
+        case 8: this.img = res['big-planet-water-ice']; break;
+        default: this.img = res['planet-mars'];
     }
 }
 
@@ -82,7 +85,7 @@ Star.prototype.execute = function(cmd){
             // check if the planet can be fixed
             if (this.targetStar) {
                 // success!!! victory!!!
-                this.c = 3
+                this.c = 0
                 this.mapRes()
                 _.trap('eot')
                 _.trap('win')
@@ -99,7 +102,7 @@ Star.prototype.tryToExecCmd = function(){
                 x: res.x,
                 y: res.y,
                 a: this.angle,
-                e: 10,
+                e: env.tuning.signalTTL,
                 spawnedBy:this,
                 cmd: cmd
             });

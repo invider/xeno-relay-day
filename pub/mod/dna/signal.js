@@ -1,5 +1,3 @@
-const SIGNAL_SPEED = 30
-
 let Signal = function(dat) {
     this.x = dat.x;
     this.y = dat.y;
@@ -11,8 +9,9 @@ let Signal = function(dat) {
     //this.dx = Math.sin(this.a) * SIGNAL_SPEED
     //this.dy = Math.cos(this.a) * SIGNAL_SPEED
     //this.a = Math.random() * Math.PI * 2
-    this.dx = Math.sin(this.a - Math.PI) * SIGNAL_SPEED
-    this.dy = Math.cos(this.a - Math.PI) * SIGNAL_SPEED
+    this.dx = Math.sin(this.a - Math.PI) * env.tuning.signalSpeed
+    this.dy = Math.cos(this.a - Math.PI) * env.tuning.signalSpeed
+    this.img = res[this.cmd.img]
 }
 
 Signal.prototype.init = function() {
