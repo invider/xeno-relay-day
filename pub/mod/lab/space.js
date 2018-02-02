@@ -1,6 +1,6 @@
 
 let STAR_FQ = 0.8
-let METEOR_FQ = 0.2
+let METEOR_FQ = 0.3
 
 // star background
 module.exports =  {
@@ -24,7 +24,7 @@ module.exports =  {
                 c: this._.lib.math.rndi(3),
                 x: this._.lib.math.rndi(this._.env.width*2),
                 y: -20,
-                dx: -50 - lib.math.rndi(150),
+                dx: -150 - lib.math.rndi(150),
                 dy: 300 + lib.math.rndi(300),
                 m: 4 + this._.lib.math.rndi(5),
             }

@@ -2,28 +2,49 @@ module.exports = function(init) {
 
     // construct and return scrolling text
     return {
-        x: init.x,
-        y: init.y,
-        h: 30,
+        timer: 0,
+        line: 0,
+
+        rx: init.rx,
+        ry: init.ry,
         txt: init.txt,
-        ttl: init.ttl,
+        period: init.period,
+        time: init.time,
+        fadein: init.fadein,
+        fadeout: init.fadeout,
+        speed: init.speed,
+        font: init.font,
+        color: init.color,
 
         init: function() {
             this.txt = this.txt.split(/\r?\n/)
         },
 
-        evo: function(dt) {
-            this.ttl -= dt
-            if (this.ttl < 0) this.alive = false
+        spawnLine: function(msg) {
+            sys.spawn('dna/fadeText', 'lab', {
+                rx: this.rx,
+                ry: this.ry,
+                text: msg,
+                font: this.font,
+                fillStyle: this.color,
+                textAlign: 'center',
+                ttl: this.time,
+                tti: this.fadein,
+                ttf: this.fadeout,
+                dy: this.speed,
+            })
         },
 
-        draw: function() {
-            if (!this.alive) return 
-            ctx.fillStyle = '#FFFF00'
-            ctx.font = '24px zekton'
+        evo: function(dt) {
+            this.timer -= dt
 
-            for (let i = 0; i < this.txt.length; i++) {
-                ctx.fillText(this.txt[i], this.x, this.y + this.h * i) 
+            if (this.timer < 0) {
+                this.timer = this.period
+                this.spawnLine(this.txt[this.line++])
+            }
+
+            if (this.line >= this.txt.length) {
+                this.__.detach(this)
             }
         },
     }

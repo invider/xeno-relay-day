@@ -1,13 +1,17 @@
 module.exports = function(_) {
-    _.log.debug('setup', ' ========= setting up the overlay')
 
-    // show story
+    // show the story
     sys.spawn('dna/scroll', 'lab', {
-        x: 120,
-        y: 150,
+        rx: 50,
+        ry: 90,
+        period: 2.5,
+        time: 30,       // how long display each line
+        fadein: 2.5,
+        fadeout: 5,
+        speed: -25,
         txt: env.story,
-        ttl: 20,
+        font: '32px Zekton',
+        color: '#FFC020',
     })
-
 
 };

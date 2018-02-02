@@ -12,14 +12,14 @@ module.exports = {
         },
         SEND_TO_NEXT_PLANET:{
             img: 'signal-relay',
-            color:'#4000FF',
-            description:"Send sequence to next planet"
+            color:'#0060EE',
+            description:"Relay message"
 
         },
         EOT:{
             img: 'signal-transmit',
             color:'#FF2040',
-            description:"End of transmission"
+            description:"End of Transmission"
         }
     },
     ROTATE_ANGLE: Math.PI / 6
