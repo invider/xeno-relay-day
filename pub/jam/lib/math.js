@@ -1,4 +1,4 @@
-this['@lib/math'] = (function() { 
+module.exports = (function() { 
 
 // LCG random generator implementation
 var _rnd_m = 0xFFFFFFFF, _rnd_a = 1664525, _rnd_c = 1013904223;

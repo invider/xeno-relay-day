@@ -1,5 +1,4 @@
-
-this['core@sys'] = (function(window) {
+module.exports = (function(window) {
     
 return {
     _info: 'system functions',

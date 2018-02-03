@@ -127,6 +127,7 @@ Star.prototype.evo = function (dt) {
 Star.prototype.execSequence = function(){
     this.allowCommandReceiving = false;
     this.executing = true;
+    lib.sfx('sfx/transmit')
 };
 
 Star.prototype.rotateAntenna = function(angle){

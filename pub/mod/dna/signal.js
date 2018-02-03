@@ -15,6 +15,7 @@ let Signal = function(dat) {
 }
 
 Signal.prototype.init = function() {
+    lib.sfx('sfx/hit')
 };
 
 Signal.prototype.checkPlanetCollision = function(){
