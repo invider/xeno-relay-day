@@ -854,9 +854,6 @@ Mod.prototype.load = function(src, base, path, ext) {
                         _.patch(base, path, val)
                     } else if (module.exports) {
                         // no value is reture - try to find a value
-                        _.log.debug('base: ' + base)
-                        _.log.debug('path: ' + path)
-                        console.dir(module.exports)
                         _.patch(base, path, module.exports)
                     } else {
                         _scene.log.debug('no value obtained from ' + src)
