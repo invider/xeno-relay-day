@@ -484,7 +484,6 @@ var Mod = function(initObj) {
 
     // container for traps
     var trap = function trap(key, data, chain) {
-        //_scene.log.debug('trapping ' + key)
         trap.echo(key, data, chain)
     }
 
@@ -1184,7 +1183,6 @@ function handleKeyDown(e) {
 
     _scene.env.keys[code] = 1
     let ename = e.code.toLowerCase() + 'Down'
-    _scene.log.debug('trap: ' + ename)
 
     let traped = _scene.trap(ename, e, true)
 
@@ -1201,7 +1199,6 @@ function handleKeyUp(e) {
     delete _scene.env.keys[code]
 
     let ename = e.code.toLowerCase() + 'Up'
-    _scene.log.debug('trap: ' + ename)
 
     let traped = _scene.trap(ename, e, true)
 
