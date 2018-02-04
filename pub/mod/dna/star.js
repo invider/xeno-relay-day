@@ -73,7 +73,7 @@ Star.prototype.execute = function(cmd){
     switch (cmd){
         case _.lib.constants.commands.SEND_TO_NEXT_PLANET:
             this.sending = true;
-            lib.sfx('sfx/transmit', 0.7)
+            lib.sfx('sfx/sequence', 0.7)
             break;
         case _.lib.constants.commands.ROTATE_RIGHT:
             this.rotateAntenna(-_.lib.constants.ROTATE_ANGLE);

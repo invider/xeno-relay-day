@@ -34,7 +34,6 @@ Signal.prototype.evo = function(dt) {
         this.__.detach(this)
 
         if (this.cmd == lib.constants.commands.EOT) {
-            log.debug('eot!!!!')
             _.trap('eot')
         }
     }
