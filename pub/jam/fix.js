@@ -891,7 +891,6 @@ Mod.prototype.fix = function(target, base, ignore) {
                         _scene.log.debug('loader', 'ignoring fix: [' + src + ']')
                     } else {
                         path = path.replace(/\..+$/, '');
-                        console.log('loading @' + src + ' & ' + target)
                         currentMod.load(src, target, path)
                     }
                 }

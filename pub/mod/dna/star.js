@@ -73,12 +73,15 @@ Star.prototype.execute = function(cmd){
     switch (cmd){
         case _.lib.constants.commands.SEND_TO_NEXT_PLANET:
             this.sending = true;
+            lib.sfx('sfx/transmit', 0.7)
             break;
         case _.lib.constants.commands.ROTATE_RIGHT:
             this.rotateAntenna(-_.lib.constants.ROTATE_ANGLE);
+            lib.sfx('sfx/turn-right', 0.5)
             break;
         case _.lib.constants.commands.ROTATE_LEFT:
             this.rotateAntenna(_.lib.constants.ROTATE_ANGLE);
+            lib.sfx('sfx/turn-left', 0.5)
             break;
 
         case _.lib.constants.commands.EOT:
@@ -90,6 +93,7 @@ Star.prototype.execute = function(cmd){
                 _.trap('eot')
                 _.trap('win')
             }
+            lib.sfx('sfx/jet', 1)
             break;
     }
 };
@@ -127,7 +131,7 @@ Star.prototype.evo = function (dt) {
 Star.prototype.execSequence = function(){
     this.allowCommandReceiving = false;
     this.executing = true;
-    lib.sfx('sfx/transmit')
+    //lib.sfx('sfx/sequence')
 };
 
 Star.prototype.rotateAntenna = function(angle){
