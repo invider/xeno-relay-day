@@ -1,11 +1,10 @@
 #!/bin/sh
 
 ./gen
-cp -r pub xeno
 
-tar cfzv xeno.tar.gz ./xeno
+cp -r pub xeno
+tar cfzv xeno.tar.gz --exclude='*.ml' --exclude='.DS_Store' ./xeno
+rm -rf ./xeno
 
 echo 'Package is generated'
-
-rm -rf ./xeno
 

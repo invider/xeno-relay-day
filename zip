@@ -1,0 +1,12 @@
+#!/bin/sh
+
+./gen
+rm -f *.zip
+
+cd pub
+zip -v -r xeno-relay-day.zip . -x ".git*" -x ".DS_Store" -x ".ml"
+mv ./xeno-relay-day.zip ../
+cd ..
+
+echo 'zip is generated'
+
