@@ -1,17 +1,15 @@
 {
-  "name": "collider.jam",
-  "version": "0.0.1",
-  "description": "Collider.jam hostring server",
-  "main": "srv.js",
-  "dependencies": {
-    "fs": "latest",
-    "express": "latest",
-    "express-ws": "latest"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Igor Khotin",
-  "license": "MIT"
+    "name": "xeno-relay-day",
+    "version": "0.2.0",
+    "description": "global game jam 2018 entry",
+    "scripts": {
+        "start": "node ./node_modules/collider.jam/jam.js"
+    },
+    "dependencies": {
+        "collider.jam": "https://github.com/invider/collider.jam.git",
+        "collider.mix": "https://github.com/invider/collider.mix.git",
+        "collider-boot.mix": "https://github.com/invider/collider-boot.mix.git",
+        "collider-lib.mix": "https://github.com/invider/collider-lib.mix.git",
+        "collider-ext.mix": "https://github.com/invider/collider-ext.mix.git"
+    }
 }
