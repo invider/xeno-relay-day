@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ ! -d "./node_modules" ]; then
-    echo 'Installing Dependencies...'
-    ./install
-fi
-
-node srv.js
-

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-rm -f man/*pdf
-rm -f pub/topology
-
-rm -f *.zip
-rm -f *.tar.gz
-
