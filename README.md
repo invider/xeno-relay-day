@@ -5,21 +5,17 @@ _Global Game Jam 2018 Entry_
 
 ## Intro
 
-Once there was a tiny Red Planet.
-It is a home of thriving civilization
-that already has WiFi.
-
+Once in a strange galaxy there was a dying Red Planet.
+It was a home of thriving civilization that already has WiFi.
 But the planet got into an ecological disaster,
-that could destroy any life.
+that could destroy all life.
 
-You have all the know-how needed to save
-such an advanced civilization.
+You have all the know-how needed to save such an advanced civilization.
 All you have to do is sent it.
 
 However, the planet is located so far away,
 that you need to rely on the cosmic relay network
 to pass the message.
-
 Pass the needed sequence of commands to
 turn the dishes and relay the message.
 
