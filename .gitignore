@@ -64,9 +64,8 @@ typings/
 # MacOS X
 .DS_Store
 
-# project-specific
-*topology
-
-# invasionwave specific 
-invasionwave-publish
+# collider.jam
+out
+dist
+*.local
 
